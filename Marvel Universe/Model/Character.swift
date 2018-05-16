@@ -21,7 +21,7 @@ class Character: NSObject {
         self.descriptionMessage = dictionary["description"] as! String
         
         let thumbnailDictionary =  dictionary["thumbnail"] as! Dictionary<String, String>
-        self.thumbnailUrl = thumbnailDictionary["path"]! + thumbnailDictionary["extension"]!
+        self.thumbnailUrl = thumbnailDictionary["path"]! + "." + thumbnailDictionary["extension"]!
         
         var urlArray = dictionary["urls"] as! [Dictionary<String, String>]
         let urlDetail =  urlArray[0]
