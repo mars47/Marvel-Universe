@@ -11,12 +11,14 @@ import UIKit
 
 class CharacterCollectionViewCellViewModel: NSObject {
     
+    let character: Character
     let appServerClient: AppServerClient
     var image: UIImage!
     var thumbnailUrl = URL(string: "")
 
     init(initWith character: Character, appServerClient: AppServerClient = AppServerClient() ){
         self.appServerClient = appServerClient
+        self.character = character
         super.init()
         
         thumbnailUrl = URL(string: character.thumbnailUrl)

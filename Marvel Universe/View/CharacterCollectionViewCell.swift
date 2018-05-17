@@ -24,10 +24,9 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
 
-        
         DispatchQueue.main.async {
-            //self.charachterLabel.text = viewModel.nameLabel.value
             
+            self.characterLabel.text = self.viewModel.character.name
             self.characterImage.image = self.viewModel.image
             self.characterImage.contentMode = .scaleAspectFill
             self.characterImage.clipsToBounds = true

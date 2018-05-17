@@ -9,8 +9,6 @@ import UIKit
 import Foundation
 
 class AppServerClient: NSObject {
-    
-    let imageCache = NSCache<AnyObject, AnyObject>()
    
     func getCharacterList(from url: URL, completion: @escaping (Result<Any>) -> ()) {
         
@@ -42,7 +40,7 @@ class AppServerClient: NSObject {
     
     
     func loadImageUsingUrlString(url: URL, urlString: String, completion: @escaping (Result<Any>) -> ()){
-            print("WEB REQUEST HAPPENED")
+
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 let image = UIImage(data: data)
@@ -52,7 +50,6 @@ class AppServerClient: NSObject {
             if let error = error {
                 print("ERROR: \(error)")
             }
-            
         }
         session.resume()
     }
