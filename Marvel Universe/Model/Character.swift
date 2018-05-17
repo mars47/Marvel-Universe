@@ -26,9 +26,7 @@ class Character: NSObject {
         var urlArray = dictionary["urls"] as! [Dictionary<String, String>]
         let urlDetail =  urlArray[0]
         self.detailUrl = urlDetail["url"]! as String
-        
     }
-    
 }
 
 

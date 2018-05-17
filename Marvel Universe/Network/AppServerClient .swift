@@ -5,10 +5,12 @@
 //  Created by Omar  on 16/05/2018.
 //  Copyright © 2018 Omar. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
 class AppServerClient: NSObject {
+    
+    let imageCache = NSCache<AnyObject, AnyObject>()
    
     func getCharacterList(from url: URL, completion: @escaping (Result<Any>) -> ()) {
         
@@ -34,6 +36,23 @@ class AppServerClient: NSObject {
             if let error = error {
                     completion(.failure(error))
             }
+        }
+        session.resume()
+    }
+    
+    
+    func loadImageUsingUrlString(url: URL, urlString: String, completion: @escaping (Result<Any>) -> ()){
+            print("WEB REQUEST HAPPENED")
+        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                let image = UIImage(data: data)
+                completion(.success(image!))
+            }
+            
+            if let error = error {
+                print("ERROR: \(error)")
+            }
+            
         }
         session.resume()
     }

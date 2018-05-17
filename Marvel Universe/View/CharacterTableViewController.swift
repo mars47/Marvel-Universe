@@ -9,6 +9,7 @@
 import UIKit
 
 class CharacterTableViewController: UITableViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +19,13 @@ class CharacterTableViewController: UITableViewController {
         
         client.getCharacterList(from: url!) { result in
             switch result {
-            case .success(var value):
-               let a  = value as! [Character]
+            case .success(let value):
+               let array  = value as! [Character]
                
-               for element in a {
+               for element in array {
                 print("\n\n[CHARACTER]\nNAME:\t\t\(element.name)\nDESCRIPTION:\t\(element.descriptionMessage)\nDETAIL URL:\t\(element.detailUrl)\nIMAGE URL:\t\(element.thumbnailUrl)")
                 }
-            case.failure(let error):
+            case .failure(let error):
                 print("error: \(error)")
                 
             }
