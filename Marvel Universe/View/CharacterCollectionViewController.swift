@@ -43,15 +43,17 @@ class CharacterCollectionViewController: UICollectionViewController {
         layout.itemSize = CGSize(width: ((self.collectionView?.frame.size.width)! - 20)/2, height: (self.collectionView?.frame.size.height)!/3)
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        
+        if let destination = segue.destination as? DetailViewController {
+            if let viewModel = sender as? CharacterCollectionViewCellViewModel {
+                destination.viewModel = viewModel
+            }
+        }
+
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -63,9 +65,16 @@ class CharacterCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CharacterCollectionViewCell
         
+        // Prepares viewModel for assignation to a collectionViewCell
         let cellViewModel = viewModel.viewCellViewModelsArray[indexPath.row]
         cell.assignViewModel(viewModel: cellViewModel)
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let viewModel = self.viewModel.viewCellViewModelsArray[indexPath.row]
+        performSegue(withIdentifier: "Show", sender: viewModel)
     }
 
 }
