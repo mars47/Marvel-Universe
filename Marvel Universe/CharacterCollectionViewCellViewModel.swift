@@ -22,12 +22,12 @@ class CharacterCollectionViewCellViewModel: NSObject {
         super.init()
         
         thumbnailUrl = URL(string: character.thumbnailUrl)
-        setupThumbnailImage(url: thumbnailUrl!, string: character.thumbnailUrl)
+        setupThumbnailImage(url: thumbnailUrl!)
     }
     
-    func setupThumbnailImage(url: URL, string: String) {
+    func setupThumbnailImage(url: URL) {
 
-        appServerClient.loadImageUsingUrlString(url: url, urlString: string) { (result) in
+        appServerClient.loadImageUsingUrlString(url: url) { (result) in
             
             switch result {
             case .success(let value):
