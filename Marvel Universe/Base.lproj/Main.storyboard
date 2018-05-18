@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kMh-uQ-e9T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y2o-dS-vVv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Character Collection View Controller-->
+        <!--Character-->
         <scene sceneID="fDA-5C-z16">
             <objects>
                 <collectionViewController id="kMh-uQ-e9T" customClass="CharacterCollectionViewController" customModule="Marvel_Universe" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,10 +60,91 @@
                             <outlet property="delegate" destination="kMh-uQ-e9T" id="p33-WL-JvJ"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Character" id="g67-XY-6wv"/>
+                    <connections>
+                        <segue destination="gfb-my-uhN" kind="show" identifier="Show" id="a5c-ty-n2s"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZd-0N-H8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112.8" y="85.907046476761622"/>
+            <point key="canvasLocation" x="1452" y="85.907046476761622"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Daz-ul-74C">
+            <objects>
+                <viewController id="gfb-my-uhN" customClass="DetailViewController" customModule="Marvel_Universe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ILs-bl-X2i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="02M-M3-06E">
+                                <rect key="frame" x="15" y="79" width="345" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="40S-ZS-Hd1"/>
+                                    <constraint firstAttribute="height" constant="242" id="5wq-xH-UFy"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C0L-FQ-psy">
+                                <rect key="frame" x="15" y="329" width="345" height="298"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qan-rS-aVu">
+                                <rect key="frame" x="120" y="635" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.80244685913705582" green="0.80244685913705582" blue="0.80244685913705582" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="More Details">
+                                    <color key="titleShadowColor" red="0.25688055199999998" green="0.21147878719999999" blue="0.23697192929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="detailsButtonPressed:" destination="gfb-my-uhN" eventType="touchUpInside" id="ZGG-xg-OFl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qan-rS-aVu" firstAttribute="leading" secondItem="oZ2-gs-t2j" secondAttribute="leading" constant="120" id="0Wj-tH-eI8"/>
+                            <constraint firstItem="oZ2-gs-t2j" firstAttribute="bottom" secondItem="Qan-rS-aVu" secondAttribute="bottom" constant="2" id="KMo-nW-7he"/>
+                            <constraint firstItem="C0L-FQ-psy" firstAttribute="leading" secondItem="oZ2-gs-t2j" secondAttribute="leading" constant="15" id="Lj2-OI-My9"/>
+                            <constraint firstItem="oZ2-gs-t2j" firstAttribute="trailing" secondItem="02M-M3-06E" secondAttribute="trailing" constant="15" id="Njr-yg-IQ0"/>
+                            <constraint firstItem="oZ2-gs-t2j" firstAttribute="bottom" secondItem="C0L-FQ-psy" secondAttribute="bottom" constant="40" id="P5l-oH-ny9"/>
+                            <constraint firstItem="02M-M3-06E" firstAttribute="top" secondItem="oZ2-gs-t2j" secondAttribute="top" constant="15" id="Q6A-vM-gpF"/>
+                            <constraint firstItem="oZ2-gs-t2j" firstAttribute="trailing" secondItem="Qan-rS-aVu" secondAttribute="trailing" constant="120" id="QC3-k2-bh9"/>
+                            <constraint firstItem="oZ2-gs-t2j" firstAttribute="trailing" secondItem="C0L-FQ-psy" secondAttribute="trailing" constant="15" id="VGb-ig-Drm"/>
+                            <constraint firstItem="C0L-FQ-psy" firstAttribute="top" secondItem="02M-M3-06E" secondAttribute="bottom" constant="8" id="YOp-pY-WlC"/>
+                            <constraint firstItem="02M-M3-06E" firstAttribute="leading" secondItem="oZ2-gs-t2j" secondAttribute="leading" constant="15" id="xac-nx-aVy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oZ2-gs-t2j"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Bun-wB-8HZ"/>
+                    <connections>
+                        <outlet property="characterImageView" destination="02M-M3-06E" id="R5c-4g-LSf"/>
+                        <outlet property="textView" destination="C0L-FQ-psy" id="vG8-Jc-qKi"/>
+                        <outlet property="titleNavigationItem" destination="Bun-wB-8HZ" id="COH-aQ-Prx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpS-57-WcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206.875" y="84.507042253521121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sv2-jm-QIp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y2o-dS-vVv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yjM-si-L8a">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kMh-uQ-e9T" kind="relationship" relationship="rootViewController" id="ME0-3h-R89"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFV-0r-D0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="86"/>
         </scene>
     </scenes>
 </document>
