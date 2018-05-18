@@ -16,11 +16,11 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     var viewModel: CharacterCollectionViewCellViewModel! {
         didSet {
-            bind()
+            updateUI()
         }
     }
 
-    func bind() {
+    func updateUI() {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
 

@@ -39,7 +39,7 @@ class AppServerClient: NSObject {
     }
     
     
-    func loadImageUsingUrlString(url: URL, urlString: String, completion: @escaping (Result<Any>) -> ()){
+    func loadImageUsingUrlString(url: URL, completion: @escaping (Result<Any>) -> ()){
 
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {

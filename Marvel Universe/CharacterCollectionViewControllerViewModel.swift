@@ -33,7 +33,7 @@ class CharacterCollectionViewControllerViewModel: NSObject {
                 print("error: \(error)")
             }
             
-            // Using the MVVM pattern means theres no need to cache the downloaded thumbnail images. Each downloaded UIImage is stored inside its relevant view model, ensuring only one web request is made for each thumbnail.
+            // Using the MVVM pattern means theres no need to cache the downloaded thumbnail images. Each downloaded UIImage is stored permanently inside its relevant view model, ensuring only one web request is made for each thumbnail.
         }
     }
 
