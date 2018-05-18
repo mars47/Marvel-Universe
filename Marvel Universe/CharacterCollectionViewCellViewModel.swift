@@ -14,14 +14,13 @@ class CharacterCollectionViewCellViewModel: NSObject {
     let character: Character
     let appServerClient: AppServerClient
     var image: UIImage!
-    var thumbnailUrl = URL(string: "")
 
     init(initWith character: Character, appServerClient: AppServerClient = AppServerClient() ){
         self.appServerClient = appServerClient
         self.character = character
         super.init()
         
-        thumbnailUrl = URL(string: character.thumbnailUrl)
+        let thumbnailUrl = URL(string: character.thumbnailUrl)
         setupThumbnailImage(url: thumbnailUrl!)
     }
     
@@ -33,7 +32,6 @@ class CharacterCollectionViewCellViewModel: NSObject {
             case .success(let value):
                 let image = value as! UIImage
                 self.image = image
-                
                 
             case .failure(let error):
                 print("error: \(error)")

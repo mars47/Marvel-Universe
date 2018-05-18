@@ -52,13 +52,11 @@ class CharacterCollectionViewController: UICollectionViewController {
                 destination.viewModel = viewModel
             }
         }
-
     }
 
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return viewModel.characterArray.value.count
     }
 
@@ -72,7 +70,6 @@ class CharacterCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let viewModel = self.viewModel.viewCellViewModelsArray[indexPath.row]
         performSegue(withIdentifier: "Show", sender: viewModel)
     }

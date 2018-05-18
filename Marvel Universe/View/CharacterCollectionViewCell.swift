@@ -13,7 +13,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var characterLabel: UILabel!
     
-    
     var viewModel: CharacterCollectionViewCellViewModel! {
         didSet {
             updateUI()
@@ -27,7 +26,8 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async {
             
             self.characterLabel.text = self.viewModel.character.name
-            self.characterImage.image = self.viewModel.image
+            if self.viewModel.image == nil { self.updateUI() }
+            else { self.characterImage.image = self.viewModel.image}
             self.characterImage.contentMode = .scaleAspectFill
             self.characterImage.clipsToBounds = true
         }
